@@ -1,4 +1,4 @@
-# nasa
+# VueJS NASA API Project
 
 ## Project setup
 ```
