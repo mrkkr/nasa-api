@@ -13,6 +13,8 @@
 </template>
 
 <script>
+const API = 'https://images-api.nasa.gov/search';
+
 export default {
   name: 'Search',
   data() {
