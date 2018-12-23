@@ -9,10 +9,18 @@
   			@input="handleInput"
   		/>
   	</div>
+  	<ul>
+  		<li v-for="item in results" :key="item.data[0].nasa_id">
+  			{{ item.links[0].href }} 
+  		</li>
+  	</ul>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import debounce from 'lodash.debounce';
+
 const API = 'https://images-api.nasa.gov/search';
 
 export default {
@@ -20,12 +28,22 @@ export default {
   data() {
   	return {
   		searchValue: '',
+  		results: [],
   	};
   },
   methods: {
-  	handleInput() {
-  		console.log(this.searchValue);
-  	},
+  	handleInput: debounce(function() {
+  		axios.get( `${API}?q=${this.searchValue}&media_type=image` )
+  			.then((response) => {
+			    // handle success
+			  this.results = response.data.collection.items;
+			  console.log(this.results);
+			})
+			.catch((error) => {
+			    // handle error
+			  console.log(error);
+			});
+  	}, 500),
   }
 };
 </script>
