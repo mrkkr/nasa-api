@@ -11,7 +11,7 @@
   	</div>
   	<ul>
   		<li v-for="item in results" :key="item.data[0].nasa_id">
-  			{{ item.links[0].href }} 
+  			<img v-bind:src="item.links[0].href" /> 
   		</li>
   	</ul>
   </div>
