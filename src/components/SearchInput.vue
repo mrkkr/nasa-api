@@ -3,9 +3,9 @@
   		<input 
   			id="search" 
   			name="search"
-  			:class="{ dark: dark }"
-  			:value="value"
-  			@input="handleChange"
+  			v-bind:class="{ dark: dark }"
+  			v-bind:value="value"
+  			v-on:input="handleChange"
   		/>
   	</div>
 </template>
