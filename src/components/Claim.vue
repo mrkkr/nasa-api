@@ -23,14 +23,33 @@ export default {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		color: #fff;
 
 		.main-head {
 			font-family: 'Audiowide', cursive;
-			font-size: 50px;
+			font-size: 53px;
+			margin: 0;
+
+			@media (min-width: 768px) {
+				font-size: 80px;
+			}
+			@media (min-width: 991px) {
+				font-size: 100px;
+			}
 		}
 		.sub-head {
 			font-size: 15px;
-			margin-top: 15px;
+			margin-top: 20px;
+			max-width: 500px;
+
+			@media (min-width: 768px) {
+				font-size: 18px;
+				letter-spacing: 1px;
+				line-height: 1;
+			}
+			@media (min-width: 991px) {
+				line-height: 1.2;
+			}
 		}
 	}
 </style>
