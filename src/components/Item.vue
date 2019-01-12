@@ -33,7 +33,29 @@ export default {
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
-		width: 300px;
-		height: 300px;
+		height: 250px;
+		min-width: 250px;
+		flex-grow: 1;
+		margin: 10px;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		/*@media (min-width: 0px) {
+			flex: 0 1 100%;
+		}
+		@media (min-width: 576px) {
+			flex: 0 1 46%;
+		}
+		@media (min-width: 768px) {
+			flex: 0 1 30%;
+		}
+		@media (min-width: 991px) {
+			flex: 0 1 31%;
+		}
+		@media (min-width: 1059px) {
+			flex: 0 1 23%;
+		}*/
 	}
 </style>

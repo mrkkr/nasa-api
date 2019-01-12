@@ -120,5 +120,12 @@ export default {
 	}
 	.results {
 		margin-top: 50px;
+		display: flex;
+	    flex-wrap: wrap;
+	    justify-content: space-around;
+
+	    @media (min-width: 1200px) {
+    		max-width: 1140px;
+	    }
 	}
 </style>
