@@ -16,6 +16,7 @@
 	  	<div class="results" v-if="results && !loading && step === 1">
 	  		<Item v-for="item in results" v-bind:item="item" v-bind:key="item.data[0].nasa_id" />
 	  	</div>
+	  	<Modal />
 	</div>
   </div>
 </template>
@@ -27,6 +28,7 @@ import HeroImage from '@/components/HeroImage.vue';
 import Claim from '@/components/Claim.vue';
 import SearchInput from '@/components/SearchInput.vue';
 import Item from '@/components/Item.vue';
+import Modal from '@/components/Modal.vue';
 
 const API = 'https://images-api.nasa.gov/search';
 
@@ -36,7 +38,8 @@ export default {
   	HeroImage,
   	Claim,
   	SearchInput,
-  	Item
+  	Item,
+  	Modal
   },
   data() {
   	return {

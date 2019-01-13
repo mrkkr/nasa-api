@@ -19,7 +19,7 @@ export default {
   		date: this.item.data[0].date_created,
   	};
   },
-  /* zmienna niżej musi być w computed, bo w obrębie data() byłaby wczytywana zanim kompotent by się w całości wczytał przez co photo byłoby undefined */
+  /* zmienna niżej musi być w computed, bo w obrębie data() byłaby wczytywana zanim komponent by się w całości wczytał przez co zmienna photo byłaby undefined */
   computed: {
   	style() {
   		return `background-image: url("${this.photo}")`;
