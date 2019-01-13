@@ -14,9 +14,10 @@
 	  		v-bind:dark="step === 1" 
 	  	/>
 	  	<div class="results" v-if="results && !loading && step === 1">
-	  		<Item v-for="item in results" v-bind:item="item" v-bind:key="item.data[0].nasa_id" />
+	  		<Item v-for="item in results" v-bind:item="item" v-bind:key="item.data[0].nasa_id" v-on:click.native="handleModalOpen(item)" />
 	  	</div>
-	  	<Modal />
+	  	<div class="loader" v-if="step === 1 && loading"><div></div><div></div></div>
+	  	<Modal v-if="modalOpen" v-on:closeModal="modalOpen = false" v-bind:item="modalItem" />
 	</div>
   </div>
 </template>
@@ -43,6 +44,8 @@ export default {
   },
   data() {
   	return {
+  		modalOpen: false,
+  		modalItem: null,
   		loading: false,
   		step: 0,
   		searchValue: '',
@@ -50,6 +53,10 @@ export default {
   	};
   },
   methods: {
+  	handleModalOpen(item) {
+  		this.modalOpen = true;
+  		this.modalItem = item;
+  	},
   	handleInput: debounce(function() {
   		this.loading = true;
   		axios.get( `${API}?q=${this.searchValue}&media_type=image` )
@@ -58,7 +65,6 @@ export default {
 			  this.results = response.data.collection.items;
 			  this.loading = false;
 			  this.step = 1;
-			  console.log(this.results);
 			})
 			.catch((error) => {
 			    // handle error
@@ -101,6 +107,44 @@ export default {
 	/* środkowych stanów nie zmieniamy, bo mają domyślne wartości */
 	.slide-enter, .slide-leave-to {
 	  margin-top: -100px;
+	}
+	.loader {
+	  display: inline-block;
+	  position: relative;
+	  top: 60px;
+	  width: 64px;
+	  height: 64px;
+
+	  @media (min-width: 768px) {
+	  	width: 80px;
+	  	height: 80px;
+	  }
+	}
+	.loader div {
+	  position: absolute;
+	  border: 5px solid #333;
+	  opacity: 1;
+	  border-radius: 50%;
+	  animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+	}
+	.loader div:nth-child(2) {
+	  animation-delay: -0.5s;
+	}
+	@keyframes loading {
+	  0% {
+	    top: 28px;
+	    left: 28px;
+	    width: 0;
+	    height: 0;
+	    opacity: 1;
+	  }
+	  100% {
+	    top: -1px;
+	    left: -1px;
+	    width: 58px;
+	    height: 58px;
+	    opacity: 0;
+	  }
 	}
 	.wrapper {
 		position: relative;

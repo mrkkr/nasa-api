@@ -14,9 +14,6 @@ export default {
   data() {
   	return {
   		photo: this.item.links[0].href,
-  		title: this.item.data[0].title,
-  		desc: this.item.data[0].description,
-  		date: this.item.data[0].date_created,
   	};
   },
   /* zmienna niżej musi być w computed, bo w obrębie data() byłaby wczytywana zanim komponent by się w całości wczytał przez co zmienna photo byłaby undefined */
