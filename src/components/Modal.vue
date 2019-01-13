@@ -54,7 +54,7 @@ export default {
 		background-color: #f6f6f6;
 
 		.title {
-			color: #333;
+			color: #3272ab;
 		}
 
 		@media (min-width: 1024px) {

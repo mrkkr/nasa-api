@@ -122,7 +122,7 @@ export default {
 	}
 	.loader div {
 	  position: absolute;
-	  border: 5px solid #333;
+	  border: 5px solid #3272ab;
 	  opacity: 1;
 	  border-radius: 50%;
 	  animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
