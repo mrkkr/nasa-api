@@ -37,9 +37,9 @@ export default {
   },
   mounted() {
   	this.photo = this.item.links[0].href;
-	this.title = this.item.data[0].title;
-	this.desc = this.item.data[0].description.substring(0,200);
-	this.date = this.item.data[0].date_created;
+	  this.title = this.item.data[0].title;
+	  this.desc = this.item.data[0].description.substring(0,200);
+	  this.date = this.item.data[0].date_created;
   }
 };
 </script>
@@ -51,7 +51,9 @@ export default {
 		position: fixed;
 		top: 0;
 		left: 0;
+		right: 0;
 		background-color: #f6f6f6;
+		overflow-y: auto;
 
 		.title {
 			color: #3272ab;
@@ -60,9 +62,6 @@ export default {
 		@media (min-width: 1024px) {
 			max-width: 70%;
 			height: 60%;
-			left: 0;
-			right: 0;
-			top: 0;
 			bottom: 0;
 			margin: auto;
 			box-shadow: 0 30px 30px -10px rgba(0,0,0, .3);
@@ -74,8 +73,13 @@ export default {
 			align-items: center;
 			flex-direction: column;
 			height: 100%;
-			padding: 50px;
 
+			@media (min-width: 0px) {
+				padding: 23px;
+			}
+			@media (min-width: 991px) {
+				padding: 50px;
+			}
 			@media (min-width: 1024px) {
 				flex-direction: row;
 
@@ -86,12 +90,17 @@ export default {
 			}
 
 			.photo {
-				width: 100%;
 				height: auto;
-				background: #000;
+				background: transparent;
 
 				img {
-					width: 100%;
+					@media (min-width: 0px) {
+						max-width: 100%;
+    				height: auto;
+					}
+					@media (min-width: 991px) {
+						max-height: 510px;
+					}
 				}
 			}
 			.description {
