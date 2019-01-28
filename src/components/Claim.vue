@@ -2,10 +2,10 @@
 	<div class="claim-wrapper">
 		<h1 class="main-head">Spacewalk</h1>
 		<p class="sub-head">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+			Simple application that allows you to find anything about space from the NASA databases.
 		</p>
 		<p class="sub-head">
-			Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Type something in search input and explore the space yourself!
 		</p>
 	</div>
 </template>
