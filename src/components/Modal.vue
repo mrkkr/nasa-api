@@ -39,7 +39,7 @@ export default {
   	this.photo = this.item.links[0].href;
 	  this.title = this.item.data[0].title;
 	  this.desc = this.item.data[0].description.substring(0,200);
-	  this.date = this.item.data[0].date_created;
+	  this.date = new Date(this.item.data[0].date_created).toUTCString();
   }
 };
 </script>
