@@ -38,21 +38,5 @@ export default {
 		&:hover {
 			cursor: pointer;
 		}
-
-		/*@media (min-width: 0px) {
-			flex: 0 1 100%;
-		}
-		@media (min-width: 576px) {
-			flex: 0 1 46%;
-		}
-		@media (min-width: 768px) {
-			flex: 0 1 30%;
-		}
-		@media (min-width: 991px) {
-			flex: 0 1 31%;
-		}
-		@media (min-width: 1059px) {
-			flex: 0 1 23%;
-		}*/
 	}
 </style>
